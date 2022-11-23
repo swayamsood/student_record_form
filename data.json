@@ -1,0 +1,56 @@
+[
+  {
+    "StudentId": 2010991105,
+    "StudentFName": "Abhi",
+    "StudentLName": "Sood",
+    "Address": "Kangra",
+    "Total_Marks_Obtained": 475,
+    "Average": 95,
+    "Grade": "A"
+  },
+  {
+    "StudentId": 2010991105,
+    "StudentFName": "Abhi",
+    "StudentLName": "Sood",
+    "Address": "Himachal",
+    "Total_Marks_Obtained": 394,
+    "Average": 78,
+    "Grade": "C"
+  },
+  {
+    "StudentId": 2010991105,
+    "StudentFName": "Abhi",
+    "StudentLName": "Sood",
+    "Address": "Hatwas",
+    "Total_Marks_Obtained": 254,
+    "Average": 50,
+    "Grade": "E"
+  },
+  {
+    "StudentId": 2010991100,
+    "StudentFName": "Abhi",
+    "StudentLName": "Sood",
+    "Address": "Nagrot Bagwan",
+    "Total_Marks_Obtained": 313,
+    "Average": 62,
+    "Grade": "D"
+  },
+  {
+    "StudentId": 2010991105,
+    "StudentFName": "Abhi",
+    "StudentLName": "Sood",
+    "Address": "Chandigarh",
+    "Total_Marks_Obtained": 330,
+    "Average": 66,
+    "Grade": "D"
+  },
+  {
+    "StudentId": 2010991105,
+    "StudentFName": "Abhi",
+    "StudentLName": "Sood",
+    "Address": "Nagrot Bagwan",
+    "Total_Marks_Obtained": 320,
+    "Average": 64,
+    "Grade": "D"
+  }
+]

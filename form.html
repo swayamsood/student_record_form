@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/a9536c156e.js" crossorigin="anonymous"></script>
+<title>St-1 Project</title>
+    <style>
+        *{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+/*for heading*/
+.head_content{
+    color:rgb(7, 6, 6);
+    font-size: 25px;
+    font-weight: bold;
+    margin-top:20px;
+    text-align:center;
+}
+
+
+
+.form_container{
+    border:3px solid rgba(194, 31, 31, 0.329);
+    background:lightseagreen;
+    margin-top:20px;
+    color:black;
+  
+}
+
+.marks{
+    width:100px;
+}
+
+
+body {
+  background-image: url("nicephoto.jpeg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+
+
+    </style>
+</head>
+<body>
+    
+        <h2 class="head_content">Student's Score</h2>
+
+        
+  <div class="form_container container">
+<form action="/data1" method="post" name="myform">
+<br>
+    <div class="row">
+        <div class="col-lg-2 col-sm-2 col-4 fw-bold">Student ID
+        </div>
+        <div class="col-8 col-lg-3 col-sm-4">
+ <input type="numbers" name="s_id" placeholder="StudentID" id="s_id">
+        </div>
+       <div class="col-lg-7 col-sm-6 fw-bold" id="msg1">
+    </div>
+       </div>
+<br>
+  
+        <br>
+        <div class="row">
+            <div class="col-sm-2 col-4 col-lg-2 fw-bold">FIRST NAME
+            </div>
+            <div class="col-8 col-lg-3 col-sm-4 ">
+     <input type="text" name="fname" placeholder="FirstName" id="fname">
+            </div>
+            <div class="col-lg-7 col-sm-6 fw-bold" id="msg2">
+            </div>
+           </div>
+
+    <br>
+<br>
+        
+        <div class="row">
+            <div class="col-sm-2 col-4 col-lg-2 fw-bold">LAST NAME
+            </div>
+            <div class="col-8 col-lg-3 col-sm-4 ">
+        <input type="text" name="lname" placeholder="LastName" id="lname">
+            </div>
+            <div class="col-lg-7 col-sm-6 fw-bold" id="msg">
+            </div>
+        </div>
+
+    <br>
+<br>
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 fw-bold"fw-bold>ADDRESS
+    </div>
+    <div class="col-lg-10 ">
+<textarea name="tarea" id="tarea" cols="30" rows="5" id="address"></textarea>
+    </div>
+ </div>
+
+<br>
+      
+<div class="row">
+    <div class="col-lg-1 col-sm-2 fw-bold"fw-bold>Subjects
+    </div>
+    <div class="col-lg-11 ">
+      <input type="numbers" placeholder="WebDev" name="WD" id="WD" class="marks" minlength="1" maxlength="3"><span id="m1"></span><br><br>
+      <input type="numbers" placeholder="NALR" name="NALR" id="NALR" class="marks" minlength="1" maxlength="3"><span id="m2"></span><br><br>
+      <input type="numbers" placeholder="BEE" name="BEE" id="BEE" class="marks" minlength="1" maxlength="3"><span id="m3"></span><br><br>
+      <input type="numbers" placeholder="CPP" name="CPP" id="CPP" class="marks" minlength="1" maxlength="3"><span id="m4"></span><br><br>
+      <input type="numbers" placeholder="JAVA" name="JAVA" id="JAVA" class="marks" minlength="1" maxlength="3"><span id="m5"></span><br><br>
+                </div>
+             </div>
+<br><br>
+           
+       
+             <div class=" d-flex justify-content-center">
+                <div class="fw-bold"fw-bold>
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button> 
+                </div>               
+            </div>   
+</form>
+  </div>
+
+    
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script>
+
+
+var validStudentId=false;
+var validFname=false;
+var validLname=false;
+var validAddress=false;
+var validWD=false;
+var validNALR=false;
+var validBEE=false;
+var validCPP=false;
+var validJAVA=false;
+
+
+/*for student id*/
+var s_Id=document.getElementById("s_id");
+var msg=document.getElementById("msg1");
+var reg=/^[0-9]{10}$/;
+s_Id.addEventListener("blur",()=>{
+    if((s_Id.value.length==10) && reg.test(s_Id.value)){
+        validStudentId=true;
+        console.log("Id matched");
+        msg.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+    }
+    else {
+        msg.style.color="red";
+        msg.innerText="Please enter valid ID";
+    }
+
+})
+
+
+/*for first name*/
+var fname=document.getElementById("fname");
+var msg2=document.getElementById("msg2");
+var reg2=/^[A-Z]([A-Za-z\s]){3,14}$/;
+fname.addEventListener("blur",()=>{
+    if(fname.value.length>=4 && reg2.test(fname.value)){
+        validFname=true;
+        console.log("Fname matched");
+        msg2.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+
+    }
+    else {
+        msg2.style.color="red";
+        msg2.innerText="Please enter valid name";
+    }
+
+
+})
+
+/* for last name */
+var lname=document.getElementById("lname");
+var msg1=document.getElementById("msg");
+var reg1=/^[A-Z]([A-Za-z\s]){3,14}$/;
+lname.addEventListener("blur",()=>{
+    if(lname.value.length>=4 && reg1.test(lname.value)){
+        validLname=true;
+        console.log("Lname matched");
+        msg1.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+
+    }
+    else {
+        msg1.style.color="red";
+        msg1.innerText="Please enter valid name";
+    }
+
+
+})
+
+
+/*for address*/
+
+var tarea=document.getElementById("tarea");
+var msg3=document.getElementById("msg3");
+var d=tarea.value;
+var reg3= /^([A-Za-z0-9\s\-_])+/;
+tarea.addEventListener("blur",()=>{
+    if(reg3.test(tarea.value)){
+        validAddress=true;
+        console.log("correct address");
+       return;
+
+    }
+
+    if(d==""){
+    alert("Enter your details");
+    validAddress=false;
+    return;
+    }
+
+
+})
+
+
+/* For Subjects */
+var WD=document.getElementById("WD");
+var m1=document.getElementById("m1");
+var reg4=/^[1-9][0-9]$/;
+var reg5=/^[0-9]$/;
+var reg6=/^[1-9][0-9][0-9]$/;
+WD.addEventListener("blur",()=>{
+    if((reg4.test(WD.value)) || (reg5.test(WD.value)) || (reg6.test(WD.value))){
+        validWD=true;
+        m1.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+    }
+    else {
+        m1.innerHTML=" <i   style='color:red' class='fa-solid fa-xmark'></i>";  
+    }
+})
+
+var NALR=document.getElementById("NALR");
+var m2=document.getElementById("m2");
+NALR.addEventListener("blur",()=>{
+    if(reg4.test(NALR.value) || reg5.test(NALR.value) || (reg6.test(NALR.value))){
+        validNALR=true;
+        m2.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+    }
+    else {
+        m2.innerHTML=" <i   style='color:red' class='fa-solid fa-xmark'></i>";
+       
+    }
+})
+
+
+var BEE=document.getElementById("BEE");
+var m3=document.getElementById("m3");
+BEE.addEventListener("blur",()=>{
+    if(reg4.test(BEE.value) || reg5.test(BEE.value) || (reg6.test(BEE.value))){
+        validBEE=true;
+        m3.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+    }
+    else {
+        m3.innerHTML=" <i   style='color:red' class='fa-solid fa-xmark'></i>";
+       
+    }
+})
+
+var CPP=document.getElementById("CPP");
+var m4=document.getElementById("m4");
+CPP.addEventListener("blur",()=>{
+    if(reg4.test(CPP.value) || reg5.test(CPP.value) || (reg6.test(CPP.value))){
+        validCPP=true;
+        m4.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+    }
+    else {
+        m4.innerHTML=" <i   style='color:red' class='fa-solid fa-xmark'></i>";
+       
+    }
+})
+
+var JAVA=document.getElementById("JAVA");
+var m5=document.getElementById("m5");
+JAVA.addEventListener("blur",()=>{
+    if(reg4.test(JAVA.value) || reg5.test(JAVA.value) || (reg6.test(JAVA.value))){
+        validJAVA=true;
+        m5.innerHTML="<i style='color:green' class='fa-solid fa-check '></i>";
+    }
+    else {
+        m5.innerHTML=" <i style='color:red' class='fa-solid fa-xmark'></i>";
+       
+    }
+})
+
+
+var submit=document.getElementById("submit");
+submit.addEventListener("click",(e)=>{
+    if(validStudentId && validFname && validLname && validAddress && validWD && validNALR && validBEE && validCPP && validJAVA){
+        alert("Data Saved Successfully");
+        console.log("Valid Data");
+    }
+    else {
+        alert("Please Fill the details");
+        e.preventDefault();
+        return;
+    }
+})
+
+</script>
+</html>
+
+
